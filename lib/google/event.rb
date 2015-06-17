@@ -98,6 +98,13 @@ module Google
       (@end_time.is_a? String) ? @end_time : @end_time.xmlschema
     end
 
+    # Check whether an event is 'in progress'
+    def happening_now?
+        if end_time > DateTime.now.to_s && start_time < DateTime.now.to_s
+        return true
+      else
+        return false
+    end
     #
     # Sets the end time of the Event.  Must be a Time object or a parse-able string representation of a time.
     #
